@@ -1,0 +1,220 @@
+.re-wrap {
+  border: 1px solid var(--border-md, #e0e0e0);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--bg-card, #fff);
+}
+
+.re-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px;
+  padding: 8px 10px;
+  background: var(--bg-muted, #f8f8f8);
+  border-bottom: 1px solid var(--border, #e0e0e0);
+}
+
+.re-btn {
+  padding: 4px 8px;
+  border: none;
+  border-radius: 5px;
+  background: transparent;
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--text-sub, #444);
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+
+.re-btn:hover {
+  background: var(--btn-gray-hv, #e8e8e8);
+}
+
+.re-btn--active {
+  background: var(--accent-muted, #dbeafe);
+  color: var(--accent, #2563eb);
+}
+
+.re-divider {
+  width: 1px;
+  height: 20px;
+  background: var(--border-md, #d0d0d0);
+  margin: 0 4px;
+  display: inline-block;
+}
+
+/* 버블 메뉴 */
+.re-bubble {
+  display: flex;
+  gap: 2px;
+  padding: 4px 6px;
+  background: #1e1e1e;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+}
+
+.re-bubble .re-btn {
+  color: #f0f0f0;
+  font-size: 13px;
+}
+
+.re-bubble .re-btn:hover {
+  background: #3a3a3a;
+}
+
+.re-bubble .re-btn--active {
+  background: #2563eb;
+  color: #fff;
+}
+
+/* 에디터 본문 */
+.re-content {
+  min-height: 400px;
+  padding: 24px 28px;
+}
+
+.re-content .ProseMirror {
+  outline: none;
+  min-height: 360px;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--text, #222);
+}
+
+.re-content .ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  color: var(--text-hint, #aaa);
+  pointer-events: none;
+  float: left;
+  height: 0;
+}
+
+/* 제목 */
+.re-content .ProseMirror h1 { font-size: 2em; font-weight: 700; margin: 0.6em 0 0.3em; }
+.re-content .ProseMirror h2 { font-size: 1.5em; font-weight: 700; margin: 0.6em 0 0.3em; }
+.re-content .ProseMirror h3 { font-size: 1.2em; font-weight: 600; margin: 0.6em 0 0.3em; }
+
+/* 목록 */
+.re-content .ProseMirror ul,
+.re-content .ProseMirror ol {
+  padding-left: 1.5em;
+  margin: 0.4em 0;
+}
+
+/* 인용구 */
+.re-content .ProseMirror blockquote {
+  border-left: 4px solid var(--accent, #2563eb);
+  margin: 1em 0;
+  padding: 8px 16px;
+  background: var(--accent-muted, #f0f5ff);
+  border-radius: 0 6px 6px 0;
+  color: var(--text-sub, #444);
+}
+
+/* 코드블록 */
+.re-content .ProseMirror pre {
+  background: #1e1e2e;
+  color: #cdd6f4;
+  border-radius: 8px;
+  padding: 16px 20px;
+  font-family: 'Fira Code', monospace;
+  font-size: 14px;
+  overflow-x: auto;
+  margin: 1em 0;
+}
+
+.re-content .ProseMirror code {
+  background: var(--bg-muted, #f0f0f0);
+  border-radius: 4px;
+  padding: 2px 5px;
+  font-size: 0.9em;
+  color: var(--text, #222);
+}
+
+.re-content .ProseMirror pre code {
+  background: none;
+  padding: 0;
+  color: #cdd6f4;
+}
+
+/* 구분선 */
+.re-content .ProseMirror hr {
+  border: none;
+  border-top: 2px solid var(--border-md, #e0e0e0);
+  margin: 1.5em 0;
+}
+
+/* 형광펜 */
+.re-content .ProseMirror mark {
+  background: #fef08a;
+  border-radius: 3px;
+  padding: 1px 2px;
+  color: #1a1a1a;
+}
+
+/* 이미지 */
+.re-content .ProseMirror img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin: 12px 0;
+  cursor: pointer;
+  display: block;
+}
+
+.re-content .ProseMirror img.ProseMirror-selectednode {
+  outline: 3px solid var(--accent, #2563eb);
+}
+
+/* 링크 */
+.re-content .ProseMirror a {
+  color: var(--accent, #2563eb);
+  text-decoration: underline;
+}
+
+/* 다크모드 */
+[data-theme="dark"] .re-wrap {
+  border-color: var(--border-md);
+  background: var(--bg-card);
+}
+
+[data-theme="dark"] .re-toolbar {
+  background: var(--bg-muted);
+  border-bottom-color: var(--border);
+}
+
+[data-theme="dark"] .re-btn {
+  color: var(--text-sub);
+}
+
+[data-theme="dark"] .re-btn:hover {
+  background: var(--btn-gray-hv);
+}
+
+[data-theme="dark"] .re-btn--active {
+  background: rgba(37,99,235,0.25);
+  color: #93c5fd;
+}
+
+[data-theme="dark"] .re-content .ProseMirror {
+  color: var(--text);
+}
+
+[data-theme="dark"] .re-content .ProseMirror blockquote {
+  background: rgba(37,99,235,0.12);
+  color: var(--text-sub);
+}
+
+[data-theme="dark"] .re-content .ProseMirror code {
+  background: #2d2d3a;
+  color: #e2e8f0;
+}
+
+[data-theme="dark"] .re-content .ProseMirror mark {
+  background: #854d0e;
+  color: #fef9c3;
+}
+
+[data-theme="dark"] .re-content .ProseMirror hr {
+  border-top-color: var(--border-md);
+}
