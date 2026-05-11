@@ -1,4 +1,4 @@
-import api from './axios';
+import api, { BASE_URL } from './axios';
 
 export const getPortfolios = (params) => api.get('/portfolios', { params });
 export const getPortfolio = (id) => api.get(`/portfolios/${id}`);
@@ -12,7 +12,7 @@ export const uploadImage = async (file) => {
   const formData = new FormData();
   formData.append('file', file);
   const token = localStorage.getItem('token');
-  const res = await fetch('http://localhost:8080/api/upload', {
+  const res = await fetch(`${BASE_URL}/api/upload`, {
     method: 'POST',
     headers: token ? { Authorization: `Bearer ${token}` } : {},
     body: formData,
