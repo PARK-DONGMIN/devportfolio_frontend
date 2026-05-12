@@ -1,7 +1,6 @@
 import { useEditor, EditorContent } from '@tiptap/react';
 import { useEffect } from 'react';
 import { useToast } from '../context/ToastContext';
-import { BASE_URL } from '../api/axios';
 import StarterKit from '@tiptap/starter-kit';
 import Image from '@tiptap/extension-image';
 import Placeholder from '@tiptap/extension-placeholder';
@@ -64,7 +63,7 @@ export default function RichEditor({ content, onChange, externalHtml }) {
     setUploading(true);
     try {
       const { data } = await uploadImage(file);
-      editor.chain().focus().setImage({ src: `${BASE_URL}${data.url}` }).run();
+      editor.chain().focus().setImage({ src: data.url }).run();
     } catch {
       showToast('이미지 업로드에 실패했습니다.', 'error');
     } finally {
