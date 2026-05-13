@@ -117,7 +117,7 @@ export default function TemplateListPage() {
           {templates.map((t) => (
             <div key={t.id} className="template-card">
               {t.previewImageUrl && (
-                <img src={`${BASE_URL}${t.previewImageUrl}`} alt={t.title} className="template-card-img" />
+                <img src={t.previewImageUrl.startsWith('http') ? t.previewImageUrl : `${BASE_URL}${t.previewImageUrl}`} alt={t.title} className="template-card-img" />
               )}
               <div className="template-card-body">
                 <h3 className="template-card-title">{t.title}</h3>
