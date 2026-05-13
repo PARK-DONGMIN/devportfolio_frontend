@@ -90,7 +90,7 @@ function EditProfileModal({ profile, onClose, onSave }) {
             <div className="profile-img-upload">
               <div className="profile-avatar large">
                 {form.profileImageUrl
-                  ? <img src={`${BASE_URL}${form.profileImageUrl}`} alt="프로필" className="profile-img-preview" />
+                  ? <img src={form.profileImageUrl.startsWith('http') ? form.profileImageUrl : `${BASE_URL}${form.profileImageUrl}`} alt="프로필" className="profile-img-preview" />
                   : <span>{form.nickname.charAt(0).toUpperCase()}</span>
                 }
               </div>
@@ -211,7 +211,7 @@ export default function ProfilePage() {
         <div className="profile-header">
           <div className="profile-avatar large">
             {userProfile?.profileImageUrl
-              ? <img src={`${BASE_URL}${userProfile.profileImageUrl}`} alt={authorName} className="profile-img-preview" />
+              ? <img src={userProfile.profileImageUrl.startsWith('http') ? userProfile.profileImageUrl : `${BASE_URL}${userProfile.profileImageUrl}`} alt={authorName} className="profile-img-preview" />
               : <span>{authorName.charAt(0).toUpperCase()}</span>
             }
           </div>

@@ -59,7 +59,7 @@ export default function PortfolioFormPage() {
           isPublic: data.isPublic ?? true,
           category: data.category ?? '웹',
         });
-        if (data.imageUrl) setPreview(`${BASE_URL}${data.imageUrl}`);
+        if (data.imageUrl) setPreview(data.imageUrl.startsWith('http') ? data.imageUrl : `${BASE_URL}${data.imageUrl}`);
       })
       .catch(() => setError('포트폴리오를 불러오지 못했습니다.'))
       .finally(() => setLoading(false));

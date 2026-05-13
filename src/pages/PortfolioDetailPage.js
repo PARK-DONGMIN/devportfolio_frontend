@@ -241,7 +241,7 @@ export default function PortfolioDetailPage() {
     <div className="page-container detail-container">
       {imageUrl && (
         <div className="detail-cover">
-          <img src={`${BASE_URL}${imageUrl}`} alt={title} className="detail-cover-img" />
+          <img src={imageUrl.startsWith('http') ? imageUrl : `${BASE_URL}${imageUrl}`} alt={title} className="detail-cover-img" />
         </div>
       )}
 

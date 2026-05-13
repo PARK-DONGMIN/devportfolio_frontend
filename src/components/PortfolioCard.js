@@ -9,7 +9,7 @@ export default function PortfolioCard({ portfolio, onSkillClick }) {
     <Link to={`/portfolio/${id}`} className="portfolio-card">
       <div className="card-image">
         {imageUrl ? (
-          <img src={`${BASE_URL}${imageUrl}`} alt={title} className="card-img" />
+          <img src={imageUrl.startsWith('http') ? imageUrl : `${BASE_URL}${imageUrl}`} alt={title} className="card-img" />
         ) : (
           <div className="card-img-placeholder">
             <span>{title.charAt(0).toUpperCase()}</span>
