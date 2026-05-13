@@ -70,7 +70,7 @@ export default function RichEditor({ content, onChange, externalHtml }) {
       setUploading(false);
       if (fileInputRef.current) fileInputRef.current.value = '';
     }
-  }, [editor]);
+  }, [editor, showToast]);
 
   const handleDrop = useCallback((e) => {
     e.preventDefault();

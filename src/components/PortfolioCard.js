@@ -4,7 +4,6 @@ import { BASE_URL } from '../api/axios';
 export default function PortfolioCard({ portfolio, onSkillClick }) {
   const navigate = useNavigate();
   const { id, title, authorName, authorEmail, skills = [], summary, createdAt, imageUrl, isPublic, likeCount = 0, viewCount = 0, category } = portfolio;
-  const date = createdAt ? new Date(createdAt).toLocaleDateString('ko-KR') : '';
 
   return (
     <Link to={`/portfolio/${id}`} className="portfolio-card">
